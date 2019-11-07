@@ -3,6 +3,11 @@
 这个项目是为了梳理一套建立对某个科学家的最小全局认识的流程。
 
 ## 示例
+### People
+- [司马贺](https://github.com/kun-g/IA06_FA/blob/master/People_Herbert.A.Simon.md)
+
+### Award
+- [图灵奖](https://github.com/kun-g/IA06_FA/blob/master/Award_Turing.Award.md)
 
 ## 文档
 ## 第一步：基础信息挖掘
