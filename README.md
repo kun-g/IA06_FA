@@ -77,6 +77,7 @@
 
 
 ### 师承关系
+可以去[academictree](https://academictree.org/)查找师承关系
 - 老师 
 - 同一老师的其他学生
 - 该学者的学生 
