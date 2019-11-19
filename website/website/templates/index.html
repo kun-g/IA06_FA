@@ -6,19 +6,22 @@
                 text-align: center;
                 background-color: #fff;
                 border-radius: 20px;
-                width: 300px;
+                width: 600px;
                 height: 350px;
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%,-50%);
             }
+            .input {
+                width: 500px
+            }
         </style>
     </head>
     <body>
         <div class="main">
             <form action="/wikipedia" method="post">
-                <p>Wikipedia URL: <input type="text" name="url" /></p>
+                <p>Wikipedia URL: <input type="text" name="url" class='input'/></p>
                 <input type="submit" value="查询" />
             </form>
         </div>

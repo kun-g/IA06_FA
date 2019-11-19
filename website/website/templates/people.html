@@ -17,8 +17,16 @@
     </head>
     <body>
         <div class="main">
+
 <p># {{ name }}
 <p>* 维基百科地址：[{{ name }}]({{ wiki_url }}
+<p>* 下一步建议：
+<p>  * 详细阅读Wikipedia
+{% if Turing_Award %}
+<p>  * 阅读图灵奖委员会写的小传: [{{ name }}]({{ Turing_Award.url }})
+<p>  * 查看ACM DL页面: [{{ name }}]({{ Turing_Award.dl_link }})
+{% endif %}
+
 <p>## 时间
 <p>### 生卒年月
 <p>* {{ Born.day }} - {% if Died %} {{ Died.day }} {% else %} ? {% endif %}
@@ -38,6 +46,22 @@
 <p>* {{ e.title }} ({{ e.year }})
 {% endfor %}
 
+{% if Turing_Award %}
+<p>#### 图灵奖
+<p>* 页面: [{{ name }}]({{ Turing_Award.url }})
+<p>* 获奖原因：
+<p>> {{ Turing_Award.citation }}
+
+{% comment %} Lecture {% endcomment %}
+    {% if Turing_Award.award_video %}
+    <p>* [视频]({{ Turing_Award.award_video}})
+    {% endif %}
+    {% if Turing_Award.award_lecture %}
+    <p>* [Lecture]({{ Turing_Award.award_lecture }})
+    {% endif %}
+
+{% endif %}
+
 <p>### 所属机构
 {% for e in Institutions %}
 <p>* [{{ e.title }}]({{ e.url }})
@@ -51,10 +75,16 @@
 
 <p>### 合作关系
 <p>### 师承关系
-<p>#### 老师
-{% for e in Doctoral_advisor %}
-<p>* [{{ e.title }}]({{ e.url }})
-{% endfor %}
+<p>- 可以去以下网站查找师承关系
+<p>  - [Mathematics Genealogy Project](https://genealogy.math.ndsu.nodak.edu/)
+<p>  - [academictree](https://academictree.org/)
+<p>  - [AceMap](https://www.acemap.info/)
+{% if Doctoral_advisor  %}
+    <p>#### 老师
+    {% for e in Doctoral_advisor %}
+    <p>* [{{ e.title }}]({{ e.url }})
+    {% endfor %}
+{% endif %}
 
 {% if Doctoral_students %}
     <p>#### 学生
@@ -62,20 +92,7 @@
     <p>* [{{ e.title }}]({{ e.url }})
     {% endfor %}
 {% endif %}
-{% comment%}
 
-${Doctoral_students} {% endcomment %}
-                
-
-                {% comment %} {% block content %}
-                <h1>Articles for {{ year }}</h1>
-                
-                {% for article in article_list %}
-                <p>{{ article.headline }}</p>
-                <p>By {{ article.reporter.full_name }}</p>
-                <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
-                {% endfor %}
-                {% endblock %} {% endcomment %}
         </div>
     </body>
 </html>
