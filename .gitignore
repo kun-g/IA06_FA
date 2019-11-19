@@ -1,2 +1,6 @@
 .vscode
 .csv
+.ipynb_checkpoints
+
+*.sqlite3
+*.pyc

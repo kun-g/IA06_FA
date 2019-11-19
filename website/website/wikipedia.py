@@ -227,10 +227,10 @@ def render_md(biography):
 #        for p in people:
 #            print(p['name'], k, p.get(k))
 
-if len(sys.argv) < 2:
-    print('usage: wikipedia.py [url]')
-    exit()
-wiki_url = sys.argv[1]
-print(wiki_url)
-data = get_people(wiki_url)
-print(render_md(data).encode('utf-8'))
+#if len(sys.argv) < 2:
+#    print('usage: wikipedia.py [url]')
+#    exit()
+#wiki_url = sys.argv[1]
+#print(wiki_url)
+#data = get_people(wiki_url)
+#print(render_md(data).encode('utf-8'))
