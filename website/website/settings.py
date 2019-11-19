@@ -25,7 +25,10 @@ SECRET_KEY = '2s!cwc*t$-y#5&no10kef+6u2u=abwg(mdjp-3_vk1l5n-lmmk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'HK5',
+    '45.43.37.174'
+]
 
 
 # Application definition
