@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>查询页面</title>
+        <style>
+            .main{
+                {% comment %} text-align: center; {% endcomment %}
+                background-color: #fff;
+                {% comment %} border-radius: 20px; {% endcomment %}
+                {% comment %} width: 300px; {% endcomment %}
+                {% comment %} height: 350px; {% endcomment %}
+                {% comment %} position: absolute; {% endcomment %}
+                {% comment %} left: 50%; {% endcomment %}
+                {% comment %} top: 20%; {% endcomment %}
+                {% comment %} transform: translate(-50%,-50%); {% endcomment %}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+<p># {{ name }}
+<p>* 维基百科地址：[{{ name }}]({{ wiki_url }}
+<p>## 时间
+<p>### 生卒年月
+<p>* {{ Born.day }} - {% if Died %} {{ Died.day }} {% else %} ? {% endif %}
+<p>### 求学经历
+{% for e in Alma_mater %}
+<p>* [{{ e.title }}]({{ e.url }})
+{% endfor %}
+
+<p>## 空间
+<p>### 学术领域
+{% for e in Fields %}
+<p>* [{{ e.title }}]({{ e.url }})
+{% endfor %}
+
+<p>### 获奖情况
+{% for e in Awards %}
+<p>* {{ e.title }} ({{ e.year }})
+{% endfor %}
+
+<p>### 所属机构
+{% for e in Institutions %}
+<p>* [{{ e.title }}]({{ e.url }})
+{% endfor %}
+
+<p>## 变量
+<p>### 主要成就
+{% for e in Known_for %}
+<p>* [{{ e.title }}]({{ e.url }})
+{% endfor %}
+
+<p>### 合作关系
+<p>### 师承关系
+<p>#### 老师
+{% for e in Doctoral_advisor %}
+<p>* [{{ e.title }}]({{ e.url }})
+{% endfor %}
+
+{% if Doctoral_students %}
+    <p>#### 学生
+    {% for e in Doctoral_students %}
+    <p>* [{{ e.title }}]({{ e.url }})
+    {% endfor %}
+{% endif %}
+{% comment%}
+
+${Doctoral_students} {% endcomment %}
+                
+
+                {% comment %} {% block content %}
+                <h1>Articles for {{ year }}</h1>
+                
+                {% for article in article_list %}
+                <p>{{ article.headline }}</p>
+                <p>By {{ article.reporter.full_name }}</p>
+                <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
+                {% endfor %}
+                {% endblock %} {% endcomment %}
+        </div>
+    </body>
+</html>

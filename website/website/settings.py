@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'HK5',
+    'localhost',
     '45.43.37.174'
 ]
 
