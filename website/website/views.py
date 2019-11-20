@@ -1,11 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.template import Context, Template
 
 # from . import wikipedia
 from .wikipedia import get_people, render_md
 from .turing_award import get_by_year
 
-#data = get_people(wiki_ur)
+with open('./website/website/templates/people.md') as f:
+    template = Template(f.read())
 
 def index(request):
     context = {}
@@ -13,7 +15,7 @@ def index(request):
 
 def wikipedia(request):
     if request.POST and request.POST['url']:
-        #data = get_people(request.POST['url'])
+        # data = get_people(request.POST['url'])
         data = {
             'Fields': [{'title': 'Computer science', 'url': 'https://en.wikipedia.org/wiki/Computer_science'}],
             'Alma mater': [{'title': 'Princeton University', 'url': 'https://en.wikipedia.org/wiki/Princeton_University'}, {'title': 'California Institute of Technology', 'url': 'https://en.wikipedia.org/wiki/California_Institute_of_Technology'}],
@@ -28,7 +30,8 @@ def wikipedia(request):
             'Died': {'day': '(2011-10-24)', 'place': 'Stanford, California, U.S.'}
         }
         data = prepare_context(data)
-        return render(request, 'people.html', data)
+        context = Context(data, autoescape=False)
+        return HttpResponse(template.render(context), content_type="text/plain; charset=utf-8")
     else:
         return index(request)
 
