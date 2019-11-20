@@ -1,4 +1,4 @@
-# 图灵奖((A.M. Turing Award)[https://en.wikipedia.org/wiki/Turing_Award])
+# 图灵奖([A.M. Turing Award](https://en.wikipedia.org/wiki/Turing_Award))
 
 ## 简介
 - 由ACM（计算机协会）颁发
