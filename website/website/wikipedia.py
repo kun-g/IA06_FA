@@ -144,6 +144,8 @@ def parse_vcard(vcard):
 
 
 def get_people(wiki_url):
+    if not wiki_url.startswith('https://en.wikipedia.org'):
+        return 'Invalide URL'
     bsObj = fetch(wiki_url)
     title = bsObj.select('h1.firstHeading')[0].text
     biography = [['People_Name', title], ['Wikipedia_url', wiki_url]]

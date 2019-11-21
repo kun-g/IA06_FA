@@ -16,6 +16,8 @@ def index(request):
 def wikipedia(request):
     if request.POST and request.POST['url']:
         data = get_people(request.POST['url'])
+        if type(data) is str:
+            return HttpResponse(data)
         # data = {
         #     'Fields': [{'title': 'Computer science', 'url': 'https://en.wikipedia.org/wiki/Computer_science'}],
         #     'Alma mater': [{'title': 'Princeton University', 'url': 'https://en.wikipedia.org/wiki/Princeton_University'}, {'title': 'California Institute of Technology', 'url': 'https://en.wikipedia.org/wiki/California_Institute_of_Technology'}],
