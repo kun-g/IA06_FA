@@ -6,7 +6,7 @@ from django.template import Context, Template
 from .wikipedia import get_people, render_md
 from .turing_award import get_by_year
 
-with open('./website/website/templates/people.md') as f:
+with open('./website/website/templates/people.md', encoding='utf-8') as f:
     template = Template(f.read())
 
 def index(request):
